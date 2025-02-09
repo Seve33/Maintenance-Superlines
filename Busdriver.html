@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="Style/Busdriver.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+ 
+    <title>Bus Driver</title>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <img src="#" alt="Profile">
+            <h2>Username<br>(Bus Driver)</h2>
+            <button id="bus-info-btn" class="active">Bus Information</button>
+            <button id="report-bus-btn">Report Bus</button>
+            <button class="Logout">Log Out</button>
+        </div>
+        
+        <div class="main-content">
+            <div id="bus-info-section" class="form-container">
+                <h1>Bus Information</h1>
+                <form>
+                    <div class="form-group">
+                        <label for="license-plate">License Plate</label>
+                        <input type="text" id="license-plate" name="license-plate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="manufacturer">Manufacturer</label>
+                        <input type="text" id="manufacturer" name="manufacturer" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bus-model">Bus Model</label>
+                        <input type="text" id="bus-model" name="bus-model" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="seating-capacity">Seating Capacity</label>
+                        <input type="number" id="seating-capacity" name="seating-capacity" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="chassis-number">Chassis Number</label>
+                        <input type="text" id="chassis-number" name="chassis-number" required>
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            
+
+            <div id="report-bus-section" class="form-container hidden">
+                <h1>Report Bus</h1>
+                <form>
+                    <div class="form-group">
+                        <label for="bus-id">Bus ID</label>
+                        <input type="text" id="bus-id" name="bus-id" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="status-type">Status Type</label>
+                        <select id="status-type" name="status-type" required>
+                            <option value="">Select Status</option>
+                            <option value="operational">Operational</option>
+                            <option value="under-maintenance">Under Maintenance</option>
+                            <option value="out-of-service">Out of Service</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="maintenance-schedule">Maintenance Schedule</label>
+                        <select id="maintenance-schedule" name="maintenance-schedule" required>
+                            <option value="">Select Schedule</option>
+                            <option value="weekly">Weekly</option>
+                            <option value="monthly">Monthly</option>
+                            <option value="yearly">Yearly</option>
+                        </select>
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/Busdriver.js"></script>
+</body>
+</html>
