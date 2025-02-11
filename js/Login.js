@@ -1,76 +1,137 @@
-// function Username() {
-//     const username = document.getElementById('Username').value;
-//     if (Username) {
-//         alert(`Password reset link sent to ${Username}`);
-//     } else {
-//         alert('Please enter your Username.');
-//     }
-// }
+// login.js
 
-// function resetPassword() {
-//     const password = document.getElementById('password').value;
-//     const confirmPassword = document.getElementById('confirm-password').value;
+// Temporary user database
+const mockUsers = [
+  // Admin users
+  { username: "admin1", password: " ", position: "admin" },
+  { username: "admin2", password: " ", position: "admin" },
 
-//     if (!password || !confirmPassword) {
-//         alert('Please fill in all fields.');
-//         return;
-//     }
+  // Manager users
+  { username: "manager1", password: " ", position: "manager" },
+  { username: "manager2", password: " ", position: "manager" },
 
-//     if (password !== confirmPassword) {
-//         alert('Passwords do not match.');
-//         return;
-//     }
+  // Bus Driver users
+  { username: "driver1", password: " ", position: "busdriver" },
+  { username: "driver2", password: " ", position: "busdriver" },
 
-//     alert('Your password has been reset successfully!');
-// }
+  // Maintenance users
+  { username: "maint1", password: " ", position: "maintenance" },
+  { username: "maint2", password: " ", position: "maintenance" },
+];
 
+document.addEventListener("DOMContentLoaded", function () {
+  // UI Elements
+  const loginBtn = document.getElementById("login");
+  const registerBtn = document.getElementById("register");
+  const loginForm = document.querySelector(".login-form");
+  const registerForm = document.querySelector(".register-form");
 
+  // Form switching animation
+  loginBtn.addEventListener("click", () => {
+    loginForm.classList.remove("hidden");
+    registerForm.classList.remove("active");
+    loginBtn.style.background = "rgba(23, 43, 224, 0.801)";
+    registerBtn.style.background = "rgb(243, 243, 243)";
+  });
 
+  registerBtn.addEventListener("click", () => {
+    loginForm.classList.add("hidden");
+    registerForm.classList.add("active");
+    registerBtn.style.background = "rgba(23, 43, 224, 0.801)";
+    loginBtn.style.background = "rgb(243, 243, 243)";
+  });
 
-const loginBtn = document.querySelector("#login")
-const registerBtn = document.querySelector("#register")
-const loginForm = document.querySelector(".login-form")
-const registerForm = document.querySelector(".register-form")
+  // Login handling
+  function handleLogin(event) {
+    event.preventDefault();
 
+    const username = document.getElementById("loginUsername").value;
+    const password = document.getElementById("loginPassword").value;
+    const errorDiv = document.getElementById("loginError");
 
-loginBtn.addEventListener('click', () =>{
-    loginBtn.style.backgroundColor = "rgba(23, 43, 224, 0.801)"
-    registerBtn.style.backgroundColor = "rgb(243, 243, 243)";
-    
-    loginForm.style.left =  "50%"   
-    registerForm.style.left = "-50%"
+    // Find user in mock database
+    const user = mockUsers.find(
+      (u) => u.username === username && u.password === password
+    );
 
-    loginForm.style.opacity = 1;
-    registerForm.style.opacity = 0;
+    if (user) {
+      // Store user info in sessionStorage
+      sessionStorage.setItem(
+        "currentUser",
+        JSON.stringify({
+          username: user.username,
+          position: user.position,
+        })
+      );
 
-    
-})
-
-registerBtn.addEventListener('click', () =>{
-    loginBtn.style.backgroundColor = "rgb(243, 243, 243)"
-    registerBtn.style.backgroundColor = "rgba(23, 43, 224, 0.801)";
-
-    loginForm.style.left =  "150%"   
-    registerForm.style.left = "50%"
-    
-    loginForm.style.opacity = 0;
-    registerForm.style.opacity = 1;
-
-})
-
-
-document.getElementById('theme-switch').addEventListener('change', function () {
-    document.body.classList.toggle('dark', this.checked);
-});
-
-function Admin(){
-    window.location.replace("Admin.html");
+      // Redirect based on position
+      switch (user.position) {
+        case "admin":
+          window.location.href = "Admin.html";
+          break;
+        case "manager":
+          window.location.href = "Manager.html";
+          break;
+        case "busdriver":
+          window.location.href = "BusDriver.html";
+          break;
+        case "maintenance":
+          window.location.href = "Maintenance.html";
+          break;
+        default:
+          errorDiv.textContent = "Invalid user position";
+      }
+    } else {
+      errorDiv.textContent = "Invalid username or password";
+    }
   }
 
+  // Registration handling
+  function handleRegister(event) {
+    event.preventDefault();
 
+    const form = event.target;
+    const formData = new FormData(form);
+    const errorDiv = document.getElementById("registerError");
 
+    // Validate password length
+    if (formData.get("password").length < 6) {
+      errorDiv.textContent = "Password must be at least 6 characters long";
+      return;
+    }
 
-  
+    // Check if username already exists
+    if (mockUsers.find((u) => u.username === formData.get("username"))) {
+      errorDiv.textContent = "Username already exists";
+      return;
+    }
 
+    // Create new user object
+    const newUser = {
+      username: formData.get("username"),
+      password: formData.get("password"),
+      position: formData.get("position"),
+      firstName: formData.get("firstName"),
+      lastName: formData.get("lastName"),
+      middleName: formData.get("middleName"),
+      address: formData.get("address"),
+      birthday: formData.get("birthday"),
+      email: formData.get("email"),
+      contact: formData.get("contact"),
+    };
 
+    // Add new user to the mock database
+    mockUsers.push(newUser);
 
+    // Show success message and reset form
+    alert("Registration successful! Please login with your credentials.");
+    form.reset();
+    loginBtn.click(); // Switch back to the login form
+  }
+
+  // Add form submit event listeners
+  document.getElementById("loginForm").addEventListener("submit", handleLogin);
+  document
+    .getElementById("registerForm")
+    .addEventListener("submit", handleRegister);
+});

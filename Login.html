@@ -2,107 +2,101 @@
 <html lang="en">
 <head>
     <title>Superlines Login</title>
-    <link rel="stylesheet" href="Style/Login.css">
+    <link rel="stylesheet" href="style/login.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
- 
-
 </head>
 <body>
-
     <div class="form-container">
         <div class="col col-1">
             <div class="image-layer">
-                <img src="/img/462570848_1765066311012885_6940218312623636937_n.png" class="form-image-main" width="300" height="300">
+                <img src="img/SuperlinesLogo.png" alt="Logo">
             </div>
-        </div><s></s>
+        </div>
         <div class="col col-2">
             <div class="btn-box">
-                <button class="btn btn-1" id="login" >Login</button>
-                <button class="btn btn-2" id="register" >Register</button>
-            </div>  
-            <!-- LOGIN FORM -->
-             <div class="login-form">
-                <divc class="form-title">
-                    <span><h3>Login</h3></span>
-                    <div class="form-inputs">
-                        <div class="input-box">
-                            <input  name="myform" action="/action_page.php" type="text" class="input-field" id="Username" onsubmit="Username()" method="post" placeholder="Username" required>
-                                <i class="bx bx-user icon"></i>
-                        </div>
-                        <div class="input-box">
-                            <input type="password" class="input-field" id="Password" placeholder="Password" required>
-                                <i class="bx bx-lock-alt icon"></i>
-                        </div>
-                        <div class="forget-pass" >
-                            <a href="Forgetpassword.html">Forgot Password?</a>
-                        </div>
-                        <div class="input-submits">
-                            <button class="button" type="button" value="Go to page" onclick="Admin()">Submit <i class="bx bx-right-arrow-alt"></i></button> 
-                        </div>
-                    </div>
-                    
-                </div>
-                
-                 <!-- Register FORM -->
-                <div class="register-form">
-                <divc class="form-title">
-                    <span><h3>Create Account</h3></span>
-                        <div class="input-box">
-                            <input type="text" class="input-field2" placeholder="Last Name" required>
-                        </div>
-                        <div class="input-box">
-                            <input type="text" class="input-field2" placeholder="First Name" required>
-                        </div>
-                        <div class="input-box">
-                            <input type="Address" class="input-field2" placeholder="Middle Name" required>
-                        </div>
-                        <div class="input-box">
-                            <input type="Address" class="input-field2" placeholder="Address" required>
-                        </div>
+                <button class="btn btn-1" id="login">Login</button>
+                <button class="btn btn-2" id="register">Register</button>
+            </div>
             
+            <!-- Login Form -->
+            <div class="login-form">
+                <div class="form-title">
+                    <h3>Login</h3>
+                </div>
+                <form id="loginForm" onsubmit="handleLogin(event)">
+                    <div class="input-box">
+                        <input type="text" class="input-field" id="loginUsername" placeholder="Username" required>
+                        <i class="bx bx-user icon"></i>
+                    </div>
+                    <div class="input-box">
+                        <input type="password" class="input-field" id="loginPassword" placeholder="Password" required>
+                        <i class="bx bx-lock-alt icon"></i>
+                    </div>
+                    <div class="forget-pass">
+                        <a href="Forgetpassword.html">Forgot Password?</a>
+                    </div>
+                    <button class="button" type="submit">
+                        Submit <i class="bx bx-right-arrow-alt"></i>
+                    </button>
+                </form>
+                <div id="loginError" class="error-message"></div>
+            </div>
+
+            <!-- Register Form -->
+            <div class="register-form">
+                <div class="form-title">
+                    <h3>Create Account</h3>
+                </div>
+                <form id="registerForm" onsubmit="handleRegister(event)">
+                    <div class="input-box">
+                        <input type="text" class="input-field2" name="lastName" placeholder="Last Name" required>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" class="input-field2" name="firstName" placeholder="First Name" required>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" class="input-field2" name="middleName" placeholder="Middle Name" required>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" class="input-field2" name="address" placeholder="Address" required>
+                    </div>
                     <div class="input-forms">
                         <div class="input-box">
-                            <input type="date" class="input-field2" placeholder="Birthday" required>
+                            <input type="date" class="input-field2" name="birthday" required>
                         </div>
                         <div class="input-box">
-                            <select type="text" class="input-field2" name="status-type" required>
-                                <option value="Position">Position</option>
-                                <option value="operational">taga repak ng tae</option>
-                                <option value="under-maintenance">Taga balot ng utot</option>
-                                <option value="out-of-service">Out of Service</option>
+                            <select class="input-field2" name="position" required>
+                                <option value="">Select Position</option>
+                                <option value="admin">Admin</option>
+                                <option value="manager">Manager</option>
+                                <option value="busdriver">Bus Driver</option>
+                                <option value="maintenance">Maintenance</option>
                             </select>
                         </div>
                         <div class="input-box">
-                            <input type="email" class="input-field2" placeholder="Email" required>
+                            <input type="email" class="input-field2" name="email" placeholder="Email" required>
                         </div>
                         <div class="input-box">
-                            <input type="tel" class="input-field2" placeholder="Contact No." required>
-                            
+                            <input type="tel" class="input-field2" name="contact" placeholder="Contact No." required>
                         </div>
                     </div>
-                    <div class="input-form">
-                    <div class="input-box">
-                        <input type="text" class="input-field2" placeholder="Username" required>
+                    <div class="input-forms">
+                        <div class="input-box">
+                            <input type="text" class="input-field2" name="username" placeholder="Username" required>
+                        </div>
+                        <div class="input-box">
+                            <input type="password" class="input-field2" name="password" placeholder="Password" required>
+                        </div>
                     </div>
-                    <div class="input-box">
-                        <input type="password" class="input-field2" placeholder="Password" required>
-                    </div>
-                </div>
-                
-
-            <div class="input-submit">
-                <button class="buttons" type="button" value="Go to page" onclick="Login()">Submit <i class="bx bx-right-arrow-alt"></i></button> 
-                <i class="bx bx-right-arrow-alt"></i>
+                    <button class="buttons" type="submit">
+                        Submit <i class="bx bx-right-arrow-alt"></i>
+                    </button>
+                </form>
+                <div id="registerError" class="error-message"></div>
             </div>
-                </div> 
+        </div>
     </div>
-        <script src="js/Login.js"></script>
-
-        <script>
-            
-        </script>
+    <script src="js/Auth.js"></script>
+    <script src="js/Login.js"></script>
 </body>
 </html>
-
-
-
