@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="Style/Manager.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager</title>
+</head>
+<body>
+    <div class="container2">
+        <div class="Maintenance-panel">
+                <div class="sidebar">
+                        <img src="#" alt="Profile">
+                        <h2>Username<br>(Mananger)</h2>
+                        <button id="MaintanedBusBtn" class="menu-button">Bus Maintaned</button>
+                        <button id="Schudelbus" class="menu-button">Schedule Bus</button>
+                        <button class="logout-button">Log Out</button>
+                </div>
+            <div class="content">
+                <div id="MaintanedBus" class="content-panel">
+                    <table id="MaintanedBusTable" contenteditable="true">
+                        <h1>Bus Maintained : XX</h1>
+                        <h3>Maintenance Categories and count</h3>
+                        <thead>
+                            <tr>
+                                <th>Maintenance Part</th>
+                                <th>Number of Buses</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>General Cleaning</td>
+                                <td>XX</td>
+                              
+                            </tr>
+                            <tr>
+                                <td>Tire Replacement</td>
+                                <td>XX</td>
+                              
+                            </tr>
+                            <tr>
+                                <td>Change Oil</td>
+                                <td>XX</td>
+                                
+                            </tr>
+                            <tr>
+                                <td>Brake Adjustment</td>
+                                <td>XX</td>
+                                
+                            </tr>
+                            <tr>
+                                <td>Engine Check-up</td>
+                                <td>XX</td>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- SECOND TABLE -->
+                    <table>
+                        <h3>List of buses with Maintenance Details</h3>
+                        <thead>
+                            <tr>
+                                <th>Bus ID</th>
+                                <th>Plate Number</th>
+                                <th>Maintanance Performed</th>
+                                <th>Date Completed</th>
+                                <th>Maintenance Personel</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>BUS001</td>
+                                <td>AHSD231</td>
+                                <td>General Cleaning</td>
+                                <td>01-01-2025</td>
+                                <td>JAZMIN JOHNRIEL</td>
+                            </tr>
+                            <tr>
+                                <td>BUS002</td>
+                                <td>SJRH23</td>
+                                <td>Change Oil</td>
+                                <td>01-01-2025</td>
+                                <td>CHOLO ARABIS</td>
+                              
+                            </tr>
+                            <tr>
+                                <td>BUS003</td>
+                                <td>GETR234</td>
+                                <td>Engine Check-up</td>
+                                <td>01-01-2025</td>
+                                <td>RUSSEL CLARK</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+    
+                <div id="schedulebusbtn" class="content-panel hidden">
+                    <table id="schedulebusbtnTable" contenteditable="true">
+                        <h1>Scheduled Bus : XX</h1>
+                        <h3>List Of Scheduled Buses With Reason For Maintenance</h3>
+                        <thead>
+                            <tr>
+                                <th>BUS ID</th>
+                                <th>Plate Number</th>
+                                <th>Reason for Maitenance</th>
+                                <th>Scheduled Date</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Bus001</td>
+                                <td>DEF345</td>
+                                <td>Overheating</td>
+                                <td>01-01-2025</td>
+                                
+                            </tr>
+                            <tr>
+                                <td>Bus002</td>
+                                <td>GHI678</td>
+                                <td>Tire Wear</td>
+                                <td>01-01-2025</td>
+                            </tr>
+                            <tr>
+                                <td>Bus003</td>
+                                <td>JKL901</td>
+                                <td>Low Oil Levels</td>
+                                <td>01-01-2025</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+        <script src="js/Manager.js"></script>
+</body>
+</html>
