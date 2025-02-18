@@ -6,7 +6,8 @@
 }
 
 body{
-    background: url("/img/GO\ FOR\ GROWTH\ \(5\).jpg");
+    background: url("../img/GO_FOR_GROWTH_5.jpg");
+    /* background: url("/img/GO\ FOR\ GROWTH\ \(5\).jpg"); */
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
@@ -29,8 +30,6 @@ body{
     border-radius: 30px;
     backdrop-filter: blur(20px);
     overflow: hidden;
-    
-   
 }
 
 /* firs Column */
@@ -90,7 +89,7 @@ h3{
     padding: 5px 30px;
     border: none;
     border-radius: 30px;
-    background: rgba(23, 43, 224, 0.932);
+    /* background: rgba(23, 43, 224, 0.932); */
     color: rgb(0, 0, 0);
     box-shadow: 0 5px 10px rgba(73, 71, 71, 0.26);
     cursor: pointer;
@@ -101,6 +100,7 @@ h3{
 .btn-1{
     font-family: FreeMono, monospace;
     background: rgba(23, 43, 224, 0.801);
+    color: rgb(255, 255, 255);
 }
 
 .btn-2{
@@ -109,6 +109,12 @@ h3{
 
 .btn:hover{
     opacity: 0.85;
+}
+
+.label1 {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 10px 0;
 }
 
 .login{
@@ -227,14 +233,12 @@ a{
     height: 55px;
     padding: 0 30px 0;
     margin: 12px 0;
-    color: #000000;
+    color: white;
     background: rgba(21, 104, 172, 0.507);
     border: none;
     border-radius: 10px;
     outline: none;
-    backdrop-filter: blur(20px);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    
 }
 
 .input-field2{
