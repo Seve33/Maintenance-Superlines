@@ -1,34 +1,37 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
+    overflow: hidden;
 }
+
+.container2 {
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
 .Maintenance-panel {
     display: flex;
     height: 100vh;
 }
 
-.container2{
-    width: 100%;
-    height: 100%;
-    background:rgba(255,255,255,0.5); 
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 100; /* Just to keep it at the very top */
-}
-
+/* Sidebar Styles */
 .sidebar {
-    position:relative;
+    position: fixed;
     width: 250px;
+    height: 100vh;
     background-color: #122a79;
     color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px 0;
+    box-sizing: border-box;
 }
-
-
 
 .sidebar img {
     width: 80px;
@@ -55,99 +58,54 @@ body {
     font-size: 16px;
     cursor: pointer;
 }
-.sidebar .button:hover {
-    background-color: #B0C4DE;
-}
-
-.content .menu-button{
-    position:relative;
-    width: 250px;
-    background-color: #122a79;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px 0;
-}
-
-.logout-button{
-    position: relative;
-    width: 80%;
-    top: 550px;
-    
-    padding: 7px 0;
-    margin: 10px 0;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 5px;
-}
-
-.sidebar button.active {
-    background-color: white;
-}
 
 .sidebar button:hover {
     background-color: #457ac1;
-
+    color: white;
 }
 
+.logout-button {
+    width: 80%;
+    margin-top: auto !important;
+    margin-bottom: 20px !important;
+    background-color: #D3D3D3 !important;
+}
+
+/* Content Area */
 .content {
     flex: 1;
+    margin-left: 250px;
+    height: 100vh;
+    overflow-y: auto;
     padding: 20px;
     background: rgba(14, 23, 160, 0.315);
     backdrop-filter: blur(30px);
     background-size: cover;
-    transition: border-radius .2s;
+    box-sizing: border-box;
 }
 
-
-body {
-    
-    font-family: Arial, sans-serif;
-    background-color: #bbb9d15b;
-    padding: 20px;
-}
-
+/* Table Styles */
 table {
-    position: relative;
     width: 100%;
-    height: 100%;
-    
     border-collapse: collapse;
     background: white;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
-
-
-
-.font{
-    font-size: 100px;
-}
-
-
 
 th, td {
     padding: 12px;
     text-align: center;
     border: 1px solid #ddd;
 }
+
 .hidden {
     display: none;
 }
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-table, th, td {
-    border: 1px solid #ccc;
-}
-th, td {
-    padding: 10px;
-    text-align: center;
-}
+
+/* Form Styles */
 .form {
     width: 50%;
     margin: auto;
@@ -155,19 +113,43 @@ th, td {
     border: 1px solid #ccc;
     border-radius: 10px;
     text-align: center;
+    background-color: white;
 }
-.form input, .form button {
+
+.form input, 
+.form button {
     width: 80%;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
 .form button {
     background-color: #4169E1;
     color: white;
     cursor: pointer;
 }
+
 .form button:hover {
     background-color: #365f9b;
+}
+
+
+/* Scrollbar Styles */
+.content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.content::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.content::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
